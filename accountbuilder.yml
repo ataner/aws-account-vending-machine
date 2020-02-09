@@ -108,7 +108,6 @@ Parameters:
     Description: "Name given to the stack deployed in the created account."
     Type: String
     AllowedPattern: ".+"
-    #AllowedPattern: "^[a-zA-z0-9-]*"
     ConstraintDescription: "Must contain only letters, numbers, dashes and start with an alpha character"
 
   stackregion:
@@ -135,12 +134,14 @@ Parameters:
   AZ1Name:
     Description: Availability Zone 1 Name in Region
     Type: String
+    Default: "us-east-1a"
     AllowedPattern: ".+"
     AllowedValues: ["ap-south-1a","ap-south-1b","eu-west-3a","eu-west-3b","eu-west-3c","eu-west-2a","eu-west-2b","eu-west-2c","eu-west-1a","eu-west-1b","eu-west-1c","ap-northeast-3a","ap-northeast-2a","ap-northeast-2c","ap-northeast-1a","ap-northeast-1c","ap-northeast-1d","sa-east-1a","sa-east-1c","ca-central-1a","ca-central-1b","ap-southeast-1a","ap-southeast-1b","ap-southeast-1c","ap-southeast-2a","ap-southeast-2b","ap-southeast-2c","eu-central-1a","eu-central-1b","eu-central-1c","us-east-1a","us-east-1b","us-east-1c","us-east-1d","us-east-1e","us-east-1f","us-east-2a","us-east-2b","us-east-2c","us-west-1b","us-west-1c","us-west-2a","us-west-2b","us-west-2c"]
 
   AZ2Name:
     Description: Availability Zone 2 Name in Region
     Type: String
+    Default: "us-east-1b"
     AllowedPattern: ".+"
     AllowedValues: ["ap-south-1a","ap-south-1b","eu-west-3a","eu-west-3b","eu-west-3c","eu-west-2a","eu-west-2b","eu-west-2c","eu-west-1a","eu-west-1b","eu-west-1c","ap-northeast-3a","ap-northeast-2a","ap-northeast-2c","ap-northeast-1a","ap-northeast-1c","ap-northeast-1d","sa-east-1a","sa-east-1c","ca-central-1a","ca-central-1b","ap-southeast-1a","ap-southeast-1b","ap-southeast-1c","ap-southeast-2a","ap-southeast-2b","ap-southeast-2c","eu-central-1a","eu-central-1b","eu-central-1c","us-east-1a","us-east-1b","us-east-1c","us-east-1d","us-east-1e","us-east-1f","us-east-2a","us-east-2b","us-east-2c","us-west-1b","us-west-1c","us-west-2a","us-west-2b","us-west-2c"]
 
@@ -196,7 +197,6 @@ Resources:
     Type: "AWS::Lambda::Function"
     Properties:
       Handler: "AccountCreationLambda.main"
-      #Handler: "index.main"
       Runtime: "python3.6"
       Role: !GetAtt LambdaExecuteRole.Arn
       Timeout: 600
